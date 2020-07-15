@@ -7,7 +7,7 @@ Ensure to have an internet connection to run the project and apk.
 
 **Screenshots**
 
-![GitHub Logo](/lib/Screenshots/1.jpg)
+![GitHub Logo](/lib/Screenshots/1.png)
 ![GitHub Logo](/lib/Screenshots/2.png)
 ![GitHub Logo](/lib/Screenshots/3.png)
 ![GitHub Logo](/lib/Screenshots/4.png)
