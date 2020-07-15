@@ -1,16 +1,16 @@
 # captain_marvel
 
-A new Flutter project.
+A flutter app that fetches Captain Marvel comics.
+=======
 
-## Getting Started
+Ensure to have an internet connection to run the project and apk.
 
-This project is a starting point for a Flutter application.
+**Screenshots**
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![GitHub Logo](/lib/Screenshots/1.jpg)
+![GitHub Logo](/lib/Screenshots/2.png)
+![GitHub Logo](/lib/Screenshots/3.png)
+![GitHub Logo](/lib/Screenshots/4.png)
+![GitHub Logo](/lib/Screenshots/5.png)
+![GitHub Logo](/lib/Screenshots/6.png)
+![GitHub Logo](/lib/Screenshots/7.png)

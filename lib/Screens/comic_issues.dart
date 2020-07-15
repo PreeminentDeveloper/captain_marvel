@@ -43,7 +43,7 @@ class _ComicsIssuesState extends State<ComicsIssues> {
                   Stack(
                     children: <Widget>[
                       Container(
-                        height: MediaQuery.of(context).size.height / 2.0 - 50,
+                        height: 150,
                         width: MediaQuery.of(context).size.width,
                         child: Hero(
                           tag: "lib/Images/CaptainMarvel1.jpg",
@@ -77,8 +77,8 @@ class _ComicsIssuesState extends State<ComicsIssues> {
                         child: Text(
                           "Captain Marvel",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                            color: Color.fromRGBO(220, 250, 54, 1.0),
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

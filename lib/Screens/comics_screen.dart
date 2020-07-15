@@ -30,60 +30,71 @@ class _ComicsScreenState extends State<ComicsScreen> {
       builder: (context, constraints) => Column(
         children: <Widget>[
           Container(
+            color: Colors.black,
             height: constraints.height / 2,
             child: Stack(
-                    children: <Widget>[
-                      Container(
-                        height: MediaQuery.of(context).size.height / 2.0,
-                        width: MediaQuery.of(context).size.width,
-                        child: Hero(
-                          tag: "lib/Images/CaptainMarvel5.jpg",
-                          child: Image.asset(
-                            "lib/Images/CaptainMarvel5.jpg",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+              children: <Widget>[
+                ClipPath(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 2.0,
+                    width: MediaQuery.of(context).size.width,
+                    child: Hero(
+                      tag: "lib/Images/CaptainMarvel5.jpg",
+                      child: Image.asset(
+                        "lib/Images/CaptainMarvel5.jpg",
+                        fit: BoxFit.cover,
                       ),
-                      Positioned(
-                        top: 10,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.arrow_back,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 10,
-                        left: 20,
-                        child: Image.asset('lib/Images/nametag.png'),
-                      ),
-                      Positioned(
-                        bottom: 25,
-                        left: 15,
-                        child: Text(
-                          "Captain Marvel",
-                          style: TextStyle(
-                            color: Colors.limeAccent,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
+                  clipper: Clipper(),
+                ),
+                Positioned(
+                  top: 10,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: 23,
+                  left: 20,
+                  child: Image.asset('lib/Images/nametag.png'),
+                ),
+                Positioned(
+                  bottom: 38,
+                  left: 15,
+                  child: Text(
+                    "Captain Marvel",
+                    style: TextStyle(
+                      color: Color.fromRGBO(220, 250, 54, 1.0),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: Stack(
               children: <Widget>[
-                Positioned.fill(
-                  child: Image.asset(
-                    'lib/Images/background1.png',
-                    fit: BoxFit.fill,
+                Container(color: Colors.black,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Text(
+                    "COMICS",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 5.0
+                    ),
                   ),
                 ),
                 Center(
@@ -110,10 +121,12 @@ class _ComicsScreenState extends State<ComicsScreen> {
                                 )
                                 .toList(),
                           );
-                        }else if(snapshot.hasError){
-                            Text("Please check your internet conenection.", style: TextStyle(color: Colors.red),);
-                          }
-                        else {
+                        } else if (snapshot.hasError) {
+                          Text(
+                            "Please check your internet conenection.",
+                            style: TextStyle(color: Colors.red),
+                          );
+                        } else {
                           return Center(child: CircularProgressIndicator());
                         }
                       },
@@ -135,34 +148,51 @@ class _ComicsScreenState extends State<ComicsScreen> {
         menuWidth: MediaQuery.of(context).size.width * 0.5,
         animateMenuItems: false,
         duration: Duration(milliseconds: 200),
-        menuBoxDecoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(color: Colors.redAccent, blurRadius: 5, spreadRadius: 1)
-          ]
-        ),
-        onPressed: (){},
+        menuBoxDecoration: BoxDecoration(boxShadow: [
+          BoxShadow(color: Colors.redAccent, blurRadius: 5, spreadRadius: 1)
+        ]),
+        onPressed: () {},
         menuItems: <FocusedMenuItem>[
           FocusedMenuItem(
-            title: Expanded(
-              child: Text(
+              title: Expanded(
+                  child: Text(
                 title,
                 style: TextStyle(fontSize: 11.0, height: 1.0),
-              )
-            ),
-            onPressed: (){}
-          ),
+              )),
+              onPressed: () {}),
         ],
-        child: Padding(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15.0)
+          ),
           padding: const EdgeInsets.all(8.0),
           child: Card(
             elevation: 2.0,
             child: Image(
               image: NetworkImage(image),
+              fit: BoxFit.cover,
             ),
           ),
         ),
       ),
     );
   }
+}
+
+class Clipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    var path = new Path();
+    path.lineTo(0.0, size.height-100);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0.0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 
 }
